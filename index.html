@@ -28,7 +28,7 @@
 
     <label>
       Increment by:
-      <input type="number" id="increment" min="1" max="10" value="3">
+      <input type="number" id="increment" min="1" max="10" value="2">
     </label>
 
     <button id="start-game-button" class="dark-grey-btn" onclick="startGame()">Start Game</button>
@@ -48,11 +48,11 @@
       </div>
 
       <div id="first-move-row" class="dropdown-row hidden">
-        <label for="first-player"><strong>Who Goes First?:</strong></label>
+        <label for="first-player"><strong>Turn Options:</strong></label>
         <select id="first-player" onchange="confirmFirstPlayer()">
-          <option value="">Select</option>
-          <option value="you">YOU</option>
-          <option value="ai">AI</option>
+          <option value="">- Select -</option>
+          <option value="you">First</option>
+          <option value="ai">Second</option>
         </select>
       </div>
     </div>
