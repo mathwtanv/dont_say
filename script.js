@@ -30,6 +30,9 @@ function startGame() {
   document.getElementById("turn").classList.add("hidden");
   document.getElementById("first-move-row").classList.add("hidden");
 
+  // Ensure main title container stays visible (no dynamic title now)
+  document.getElementById("title-container").style.display = "flex";
+
   const capitalizedMode = mode === "say" ? "Say" : "Don't Say";
   document.getElementById("main-title").textContent = `${capitalizedMode} ${target}`;
 
@@ -65,7 +68,6 @@ function chooseGameMode() {
   }
 }
 
-
 function confirmFirstPlayer() {
   const first = document.getElementById("first-player").value;
   if (!first) return;
@@ -81,7 +83,6 @@ function confirmFirstPlayer() {
 
   if (playerTurn === 2) aiMove();
 }
-
 
 function setupButtons() {
   const buttonArea = document.getElementById("say-buttons");
@@ -107,7 +108,6 @@ function setupButtons() {
     buttonArea.appendChild(btn);
   }
 }
-
 
 function playerMove(count) {
   document.getElementById("reset-button").classList.remove("hidden");
@@ -156,7 +156,6 @@ function playerMove(count) {
     }
   }
 }
-
 
 function aiMove() {
   if (gameOver) return;
@@ -208,8 +207,6 @@ function resetGame() {
   setupButtons();
 }
 
-
-
 function goToInitial() {
   current = 0;
   playerTurn = 1;
@@ -224,7 +221,11 @@ function goToInitial() {
   document.getElementById("say-buttons").innerHTML = "";
   document.getElementById("turn").classList.add("hidden");
 
+  // Show main title container on reset
+  document.getElementById("title-container").style.display = "flex";
+
   document.getElementById("main-title").textContent = "To Say or Not to Say a Number";
+
   document.getElementById("setup-screen").style.display = "flex";
   document.getElementById("game-container").style.display = "none";
 
@@ -235,3 +236,16 @@ function goToInitial() {
   document.getElementById("first-player").value = "";
   document.getElementById("first-move-row").classList.add("hidden");
 }
+
+function openRules() {
+  document.getElementById("rules-modal").classList.remove("hidden");
+}
+
+function closeRules() {
+  document.getElementById("rules-modal").classList.add("hidden");
+}
+
+// Add event listeners for showing/hiding the rules modal
+document.getElementById("info-button").addEventListener("click", openRules);
+document.getElementById("close-rules-btn").addEventListener("click", closeRules);
+document.getElementById("rules-overlay").addEventListener("click", closeRules);

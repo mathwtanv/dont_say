@@ -7,7 +7,7 @@ body {
   background: #fffdf0;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
+  justify-content: center;
   align-items: center;
 }
 
@@ -42,6 +42,51 @@ h1 {
   margin-bottom: 0.5rem;
   text-align: center;
 }
+
+/* === Title Container and Info Button === */
+#title-container {
+  position: relative;
+  display: flex;
+  justify-content: center; /* center the h1 */
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-right: 40px; /* space for the absolutely positioned button */
+}
+
+#title-container h1 {
+  font-size: 2rem;
+  color: #3d3d3d;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#info-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border: 2px solid #444;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #444;
+  font-family: 'DM Serif Text', serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+#info-button:hover {
+  background-color: #f2e9dd;
+}
+
 
 /* === Turn Indicator === */
 #turn {
@@ -150,7 +195,7 @@ button:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   max-width: 300px;
   width: 90%;
-  margin-top: 0; /* changed to 0 for vertical centering */
+  margin-top: 0;
   text-align: center;
   font-size: 1.05rem;
 }
@@ -284,7 +329,7 @@ option {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem; /* space between title and config box */
+  gap: 1rem;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -307,7 +352,6 @@ option {
     max-width: 100%;
   }
 
-  /* Uniform size and styling for inputs and dropdowns in setup screen */
   .setup-screen input,
   .setup-screen select {
     width: auto;
@@ -317,7 +361,6 @@ option {
     box-sizing: border-box;
   }
 
-  /* Uniform size and styling for buttons */
   button,
   .setup-screen button {
     width: auto;
@@ -331,14 +374,12 @@ option {
     border-radius: 10px;
   }
 
-  /* Say buttons: slightly different max-width but consistent styling */
   #say-buttons button {
     min-width: 60px;
     max-width: 140px;
     font-size: 0.95rem;
   }
 
-  /* Number area grid adjustment */
   .number-area {
     grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
     gap: 6px;
@@ -363,7 +404,6 @@ option {
     width: 100%;
   }
 
-  /* Dropdown styling */
   select,
   #game-mode,
   #first-player {
@@ -382,3 +422,70 @@ option {
   }
 }
 
+/* === Modal Styles === */
+#rules-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#rules-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+#rules-content {
+  position: relative;
+  background: #fffdf0;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+  z-index: 10000;
+  font-family: 'DM Serif Text', serif;
+  color: #444;
+}
+
+#rules-content h2 {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+#rules-content p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+}
+
+#close-rules-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.6rem 1.2rem;
+  background-color: #444444;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'DM Serif Text', serif;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+#close-rules-btn:hover {
+  background-color: #222222;
+}
+
+/* === Hide Dynamic Game Title Container === */
+#game-title-container {
+  display: none;
+}

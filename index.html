@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +8,27 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 id="main-title">To Say or Not to Say a Number</h1>
+  <!-- First page title with info button -->
+  <div id="title-container" style="display: flex; align-items: center; justify-content: center; gap: 8px; position: relative;">
+    <h1 id="main-title">To Say or Not to Say a Number</h1>
+    <button id="info-button" aria-label="Game Rules">i</button>
+  </div>
+
+  <!-- Rules Modal -->
+  <div id="rules-modal" class="hidden">
+    <div id="rules-overlay"></div>
+    <div id="rules-content">
+      <h2>Game Rules</h2>
+      <p>
+        Welcome to To Say or Not to Say. The default version of this game is 'Don't Say 13', which 
+        you can go to by directly pressing the Start Game button []. This is a two player game, and the aim is to either
+        not land on (Don't Say mode) or land on (Say mode) the number specified in the second dropdown. Once this number
+        is hit, the game ends. On each turn, you can add on to the number your opponent leaves you with, 
+        by pressing one of the say buttons []. The largest value is what is being referred to as the increment. 
+      </p>
+      <button id="close-rules-btn" aria-label="Close Rules">Close</button>
+    </div>
+  </div>
 
   <!-- Setup Screen -->
   <div id="setup-screen" class="setup-screen">
