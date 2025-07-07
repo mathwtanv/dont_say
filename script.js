@@ -226,7 +226,7 @@ function goToInitial() {
 
   document.getElementById("mode").value = "dont-say";
   document.getElementById("target-number").value = 13;
-  document.getElementById("increment").value = 3;
+  document.getElementById("increment").value = 2;
   document.getElementById("game-mode").value = "";
   document.getElementById("first-player").value = "";
   document.getElementById("first-move-row").classList.add("hidden");
