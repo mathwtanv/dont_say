@@ -115,7 +115,10 @@ function playerMove(count) {
 
   const numberArea = document.getElementById("number-area");
 
-  for (let i = 1; i <= count; i++) {
+  // Clamp the count so we don't go past the target
+  const maxCount = Math.min(count, target - current);
+
+  for (let i = 1; i <= maxCount; i++) {
     current++;
 
     const box = document.createElement("div");
@@ -128,9 +131,9 @@ function playerMove(count) {
       box.classList.add(mode === "say" ? "winner" : "loser");
       const playerName = getPlayerLabel();
       document.getElementById("result").textContent =
-      mode === "say"
-        ? `${playerName} said ${target} and WON!`
-        : `${playerName} said ${target} and LOST!`;
+        mode === "say"
+          ? `${playerName} said ${target} and WON!`
+          : `${playerName} said ${target} and LOST!`;
 
       gameOver = true;
     }
@@ -153,6 +156,7 @@ function playerMove(count) {
     }
   }
 }
+
 
 function aiMove() {
   if (gameOver) return;

@@ -70,6 +70,7 @@ button {
   color: #444;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  box-sizing: border-box;
 }
 
 button:hover {
@@ -175,12 +176,18 @@ button:hover {
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
-  max-width: 140x;
+  max-width: 140px;
   width: 50%;
   box-sizing: border-box;
   margin: 0 auto;
   background-color: #fffdf0;
   color: #444;
+}
+
+.setup-screen input,
+.setup-screen select,
+button {
+  box-sizing: border-box;
 }
 
 .setup-screen button {
@@ -239,7 +246,6 @@ option {
   text-align-last: center;
 }
 
-
 /* === Who Goes First Section === */
 #first-move-label {
   display: flex;
@@ -283,6 +289,7 @@ option {
   margin-bottom: auto;
 }
 
+/* === Responsive Styles for Small Screens === */
 @media (max-width: 600px) {
   body {
     padding: 1rem;
@@ -300,17 +307,38 @@ option {
     max-width: 100%;
   }
 
-  /* Applies to all dropdowns, inputs, and buttons */
+  /* Uniform size and styling for inputs and dropdowns in setup screen */
   .setup-screen input,
-  .setup-screen select,
-  .setup-screen button,
-  button {
+  .setup-screen select {
     width: auto;
-    max-width: 250px;
+    max-width: 140px;
     margin: 0 auto;
-    display: block;
+    text-align: center;
+    box-sizing: border-box;
   }
 
+  /* Uniform size and styling for buttons */
+  button,
+  .setup-screen button {
+    width: auto;
+    max-width: 140px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+
+  /* Say buttons: slightly different max-width but consistent styling */
+  #say-buttons button {
+    min-width: 60px;
+    max-width: 140px;
+    font-size: 0.95rem;
+  }
+
+  /* Number area grid adjustment */
   .number-area {
     grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
     gap: 6px;
@@ -320,12 +348,6 @@ option {
     width: 100%;
     height: 40px;
     font-size: 1rem;
-  }
-
-  button {
-    padding: 0.7rem;
-    font-size: 1rem;
-    width: 100%;
   }
 
   .button-row {
@@ -341,19 +363,22 @@ option {
     width: 100%;
   }
 
+  /* Dropdown styling */
   select,
   #game-mode,
   #first-player {
-    text-align: left;
+    width: auto;
+    max-width: 140px;
     padding: 0.6rem;
-  }
-
-  #game-mode,
-  #first-player {
+    box-sizing: border-box;
     text-align: center;
     text-align-last: center;
     background-color: #444;
     color: #fffdf0;
     border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
+
