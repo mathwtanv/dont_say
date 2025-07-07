@@ -27,6 +27,18 @@ select#game-mode {
   border-radius: 5px;
 }
 
+/* === Game Wrapper Scale === */
+#game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  transform-origin: top center;
+  width: 100%;
+}
+
+
 /* === Headings === */
 h1 {
   font-size: 2rem;
@@ -47,10 +59,10 @@ h1 {
 #title-container {
   position: relative;
   display: flex;
-  justify-content: center; /* center the h1 */
+  justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
-  padding-right: 40px; /* space for the absolutely positioned button */
+  padding: 0 40px; /* equal padding left and right */
 }
 
 #title-container h1 {
@@ -87,7 +99,6 @@ h1 {
   background-color: #f2e9dd;
 }
 
-
 /* === Turn Indicator === */
 #turn {
   font-size: 1.2rem;
@@ -100,7 +111,7 @@ h1 {
 #say-buttons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, auto));
-  justify-content: center; 
+  justify-content: center;
   gap: 0.5rem;
   margin: 1rem 0;
 }
@@ -229,12 +240,6 @@ button:hover {
   color: #444;
 }
 
-.setup-screen input,
-.setup-screen select,
-button {
-  box-sizing: border-box;
-}
-
 .setup-screen button {
   max-width: 200px;
   margin: 0 auto;
@@ -248,7 +253,7 @@ button {
   width: 90%;
 }
 
-/* === Button Row (Restart + Initial States) === */
+/* === Button Row === */
 .button-row {
   display: flex;
   justify-content: center;
@@ -256,7 +261,6 @@ button {
   margin-top: 1rem;
 }
 
-/* === Dark Grey Buttons (Restart + Initial States + Start Game) === */
 .dark-grey-btn {
   background-color: #444444;
   color: white;
@@ -273,7 +277,6 @@ option {
   color: #444;
 }
 
-/* === Dropdown Styles === */
 #game-mode {
   text-align: center;
   text-align-last: center;
@@ -291,7 +294,7 @@ option {
   text-align-last: center;
 }
 
-/* === Who Goes First Section === */
+/* === First Move Section === */
 #first-move-label {
   display: flex;
   flex-direction: column;
@@ -324,7 +327,7 @@ option {
   gap: 0.5rem;
 }
 
-/* === Intro Group Centering === */
+/* === Intro Group === */
 .intro-group {
   display: flex;
   flex-direction: column;
@@ -334,7 +337,7 @@ option {
   margin-bottom: auto;
 }
 
-/* === Modal Styles === */
+/* === Modal === */
 #rules-modal {
   position: fixed;
   top: 0;
@@ -397,12 +400,12 @@ option {
   background-color: #222222;
 }
 
-/* === Hide Dynamic Game Title Container === */
+/* === Hide Game Title === */
 #game-title-container {
   display: none;
 }
 
-/* === Responsive Styles for Small Screens === */
+/* === Responsive (Mobile) === */
 @media (max-width: 600px) {
   body {
     padding: 1rem;
@@ -435,7 +438,6 @@ option {
     max-width: 140px;
     padding: 0.6rem 1rem;
     font-size: 1rem;
-    box-sizing: border-box;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -489,9 +491,8 @@ option {
     margin-right: auto;
   }
 
-  @media (max-width: 600px) {
   #title-container {
-    padding-right: 40px; /* space for the info button */
+    padding: 0 40px;
     justify-content: center;
   }
 
@@ -506,14 +507,5 @@ option {
     width: 26px;
     height: 26px;
     font-size: 1rem;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 2px solid #444;
-    border-radius: 50%;
-    background-color: transparent;
-    color: #444;
   }
-}
-
 }
