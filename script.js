@@ -23,7 +23,10 @@ function startGame() {
 
   document.getElementById("setup-screen").style.display = "none";
   document.getElementById("game-container").style.display = "block";
+
+  // Back button visible on game screen start
   document.getElementById("back-button").classList.remove("hidden");
+
   document.getElementById("mode-select").style.display = "block";
 
   // Hide turn text and second dropdown initially
@@ -64,6 +67,10 @@ function chooseGameMode() {
     document.getElementById("turn").classList.remove("hidden");
     document.getElementById("turn").textContent = "Player A's Turn";
     document.getElementById("reset-button").classList.remove("hidden");
+
+    // Hide initial states button — game mode chosen, game started
+    document.getElementById("back-button").classList.add("hidden");
+
     setupButtons();
   }
 }
@@ -80,6 +87,9 @@ function confirmFirstPlayer() {
   document.getElementById("turn").textContent = playerTurn === 1 ? "Your Turn" : "AI's Turn";
 
   setupButtons();
+
+  // Hide initial states button — first player confirmed, game started
+  document.getElementById("back-button").classList.add("hidden");
 
   if (playerTurn === 2) aiMove();
 }
@@ -110,8 +120,10 @@ function setupButtons() {
 }
 
 function playerMove(count) {
-  document.getElementById("reset-button").classList.remove("hidden");
   if (gameOver) return;
+
+  // Show the restart button once the first move happens
+  document.getElementById("reset-button").classList.remove("hidden");
 
   const numberArea = document.getElementById("number-area");
 
@@ -182,28 +194,34 @@ function resetGame() {
   current = 0;
   playerTurn = 1;
   gameOver = false;
-  
+
+  // Clear the number area and result message
   document.getElementById("number-area").innerHTML = "";
   document.getElementById("result").textContent = "";
 
-  document.getElementById("setup-screen").style.display = "none";
-  document.getElementById("game-container").style.display = "block";
+  // Hide Restart button because game is fresh now
+  document.getElementById("reset-button").classList.add("hidden");
+
+  // Show back button on reset
   document.getElementById("back-button").classList.remove("hidden");
 
-  document.getElementById("reset-button").classList.remove("hidden");
+  // Show initial states button again on reset
+  document.getElementById("back-button").classList.remove("hidden");
+
+  // Reset turn text and hide it
+  const turnEl = document.getElementById("turn");
+  turnEl.textContent = "";
+  turnEl.classList.add("hidden");
+
+  // Reset mode selections so player can pick again if wanted
+  document.getElementById("game-mode").value = "";
+  document.getElementById("first-player").value = "";
+  document.getElementById("mode-select").style.display = "block";
+  document.getElementById("first-move-row").classList.add("hidden");
 
   selectedMode = "";
 
-  document.getElementById("game-mode").value = "";
-  document.getElementById("first-player").value = "";
-
-  document.getElementById("mode-select").style.display = "block";
-
-  document.getElementById("first-move-row").classList.add("hidden");
-  const turnEl = document.getElementById("turn");
-  turnEl.classList.add("hidden");
-  turnEl.textContent = "";
-
+  // Reset buttons, disable them until mode chosen again
   setupButtons();
 }
 
