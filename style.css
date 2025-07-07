@@ -1,0 +1,356 @@
+/* === Global Defaults === */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'DM Serif Text', serif;
+  background: #fef9f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center;
+}
+
+button,
+input,
+select {
+  font-family: 'DM Serif Text', serif;
+  background-color: #fef9f3;
+}
+
+select {
+  background-color: #444;
+}
+
+select#game-mode {
+  color: #fef9f3;
+  border-radius: 5px;
+}
+
+/* === Headings === */
+h1 {
+  font-size: 2rem;
+  color: #3d3d3d;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+
+#main-title {
+  font-size: 2rem;
+  color: #3d3d3d;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* === Turn Indicator === */
+#turn {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color: #444;
+  text-align: center;
+}
+
+/* === Say Buttons === */
+#say-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+/* === Buttons === */
+button {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fef9f3;
+  color: #444;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #f2e9dd;
+}
+
+.cream-btn {
+  background-color: #fef9f3;
+  color: #444;
+  border: 1px solid #ccc;
+}
+
+.cream-btn:hover {
+  background-color: #f2e9dd;
+}
+
+/* === Number Area === */
+.number-area {
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 1.5rem auto;
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  gap: 10px;
+  justify-content: center;
+}
+
+.number-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  color: white;
+}
+
+.player1 {
+  background-color: #f87272;
+}
+
+.player2 {
+  background-color: #003f5c;
+}
+
+.loser {
+  background-color: #e63946 !important;
+}
+
+.winner {
+  background-color: #009e30 !important;
+}
+
+/* === Game Result Text === */
+.result {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #d62828;
+  margin-top: 1rem;
+}
+
+/* === Hidden Utility === */
+.hidden {
+  display: none !important;
+}
+
+/* === Setup Screen === */
+.setup-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #fef0df;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  width: 90%;
+  margin-top: 0; /* changed to 0 for vertical centering */
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+.setup-screen h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  font-family: 'DM Serif Text', serif;
+}
+
+.setup-screen label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.setup-screen input,
+.setup-screen select {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  max-width: 200px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  background-color: #fef9f3;
+  color: #444;
+}
+
+.setup-screen button {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* === Game Container === */
+#game-container {
+  display: none;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+}
+
+/* === Button Row (Restart + Initial States) === */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* === Dark Grey Buttons (Restart + Initial States + Start Game) === */
+.dark-grey-btn {
+  background-color: #444444;
+  color: white;
+  border: none;
+}
+
+.dark-grey-btn:hover {
+  background-color: #222222;
+}
+
+/* === Dropdown Option Colors === */
+option {
+  background-color: #fef9f3;
+  color: #444;
+}
+
+/* === Dropdown Styles === */
+#game-mode {
+  text-align: center;
+  text-align-last: center;
+}
+
+#game-mode-label {
+  margin-right: 1rem;
+}
+
+#first-player {
+  color: #fef9f3;
+  border-radius: 5px;
+  background-color: #444;
+}
+
+/* === Who Goes First Section === */
+#first-move-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+#first-move-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* === Dropdown Containers === */
+.mode-select {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.dropdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* === Intro Group Centering === */
+.intro-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* space between title and config box */
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  #main-title {
+    font-size: 1.5rem;
+    white-space: normal;
+  }
+
+  .setup-screen {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Applies to all dropdowns, inputs, and buttons */
+  .setup-screen input,
+  .setup-screen select,
+  .setup-screen button,
+  button {
+    width: auto;
+    max-width: 250px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .number-area {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 6px;
+  }
+
+  .number-box {
+    width: 100%;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 0.7rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .button-row {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .mode-select,
+  .dropdown-row {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  select,
+  #game-mode,
+  #first-player {
+    text-align: left;
+    padding: 0.6rem;
+  }
+
+  #game-mode,
+  #first-player {
+    text-align: center;
+    text-align-last: center;
+    background-color: #444;
+    color: #fef9f3;
+    border-radius: 5px;
+  }
+}
