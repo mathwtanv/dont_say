@@ -334,6 +334,74 @@ option {
   margin-bottom: auto;
 }
 
+/* === Modal Styles === */
+#rules-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#rules-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+#rules-content {
+  position: relative;
+  background: #fffdf0;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+  z-index: 10000;
+  font-family: 'DM Serif Text', serif;
+  color: #444;
+}
+
+#rules-content h2 {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+#rules-content p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+}
+
+#close-rules-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.6rem 1.2rem;
+  background-color: #444444;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'DM Serif Text', serif;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+#close-rules-btn:hover {
+  background-color: #222222;
+}
+
+/* === Hide Dynamic Game Title Container === */
+#game-title-container {
+  display: none;
+}
+
 /* === Responsive Styles for Small Screens === */
 @media (max-width: 600px) {
   body {
@@ -420,72 +488,32 @@ option {
     margin-left: auto;
     margin-right: auto;
   }
+
+  @media (max-width: 600px) {
+  #title-container {
+    padding-right: 40px; /* space for the info button */
+    justify-content: center;
+  }
+
+  #title-container h1 {
+    font-size: 1.5rem;
+    white-space: normal;
+    text-align: center;
+    margin: 0;
+  }
+
+  #info-button {
+    width: 26px;
+    height: 26px;
+    font-size: 1rem;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 2px solid #444;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #444;
+  }
 }
 
-/* === Modal Styles === */
-#rules-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#rules-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5);
-}
-
-#rules-content {
-  position: relative;
-  background: #fffdf0;
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  max-width: 400px;
-  width: 90%;
-  z-index: 10000;
-  font-family: 'DM Serif Text', serif;
-  color: #444;
-}
-
-#rules-content h2 {
-  margin-top: 0;
-  font-weight: 700;
-  font-size: 1.8rem;
-  text-align: center;
-}
-
-#rules-content p {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  margin-bottom: 1.2rem;
-}
-
-#close-rules-btn {
-  display: block;
-  margin: 0 auto;
-  padding: 0.6rem 1.2rem;
-  background-color: #444444;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: 'DM Serif Text', serif;
-  font-size: 1rem;
-  transition: background-color 0.2s ease;
-}
-
-#close-rules-btn:hover {
-  background-color: #222222;
-}
-
-/* === Hide Dynamic Game Title Container === */
-#game-title-container {
-  display: none;
 }
