@@ -188,12 +188,30 @@ button:hover {
 }
 
 /* === Game Result Text === */
+
+/* Default result text color (loss or draw) */
 .result {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #d62828;
+  color: #e63946; /* red for loss by default */
   margin-top: 1rem;
 }
+
+/* When player wins */
+.result.win {
+  color: #009e30 !important; /* green for win */
+}
+
+/* When it's a draw */
+.result.draw {
+  color: #f1faee !important; /* light gray/white for draw */
+}
+
+/* When player loses */
+.result.lose {
+  color: #d62828 !important; /* dark red for loss */
+}
+
 
 /* === Hidden Utility === */
 .hidden {
@@ -371,6 +389,10 @@ option {
   animation: fadeIn 0.25s ease-out;
   position: relative;
   text-align: left;
+
+  /* Allow scrolling if content exceeds max height */
+  max-height: 600px;  /* Adjust based on the height you want */
+  overflow-y: auto;  /* This enables scrolling */
 }
 
 #rules-content h2 {
@@ -402,6 +424,7 @@ option {
 #close-rules-btn:hover {
   background-color: #222222;
 }
+
 
 @keyframes fadeIn {
   from {
@@ -522,4 +545,17 @@ option {
     height: 26px;
     font-size: 1rem;
   }
+}
+
+/* === Result Color Classes === */
+.win {
+  color: green; /* Green for win */
+}
+
+.lose {
+  color: red; /* Red for lose */
+}
+
+.draw {
+  color: gray; /* Gray for draw */
 }

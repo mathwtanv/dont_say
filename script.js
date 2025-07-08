@@ -142,10 +142,15 @@ function playerMove(count) {
     if (isMatch) {
       box.classList.add(mode === "say" ? "winner" : "loser");
       const playerName = getPlayerLabel();
-      document.getElementById("result").textContent =
-        mode === "say"
-          ? `${playerName} said ${target} and WON!`
-          : `${playerName} said ${target} and LOST!`;
+      let resultMessage = "";
+
+      if (mode === "say") {
+        resultMessage = `${playerName} said ${target} and WON!`;
+        updateResultMessage(resultMessage, "win"); // Call the result update with 'win'
+      } else {
+        resultMessage = `${playerName} said ${target} and LOST!`;
+        updateResultMessage(resultMessage, "lose"); // Call the result update with 'lose'
+      }
 
       gameOver = true;
     }
@@ -166,6 +171,22 @@ function playerMove(count) {
         playerTurn === 1 ? "Your Turn" : "AI's Turn";
       if (playerTurn === 2) aiMove();
     }
+  }
+}
+
+function updateResultMessage(message, resultType) {
+  const resultElement = document.getElementById("result");
+  resultElement.textContent = message;
+
+  // Reset any old styles first
+  resultElement.classList.remove("win", "lose", "draw");
+
+  if (resultType === "win") {
+    resultElement.classList.add("win");
+  } else if (resultType === "lose") {
+    resultElement.classList.add("lose");
+  } else {
+    resultElement.classList.add("draw");
   }
 }
 
@@ -255,6 +276,7 @@ function goToInitial() {
   document.getElementById("first-move-row").classList.add("hidden");
 }
 
+// Existing openRules and closeRules functions
 function openRules() {
   document.getElementById("rules-modal").classList.remove("hidden");
 }
@@ -263,7 +285,14 @@ function closeRules() {
   document.getElementById("rules-modal").classList.add("hidden");
 }
 
-// Add event listeners for showing/hiding the rules modal
+// Event listener for showing the rules modal
 document.getElementById("info-button").addEventListener("click", openRules);
-document.getElementById("close-rules-btn").addEventListener("click", closeRules);
-document.getElementById("rules-overlay").addEventListener("click", closeRules);
+
+// Event listener for closing rules by clicking anywhere outside the modal content (on the overlay)
+document.getElementById("rules-modal").addEventListener("click", function(event) {
+  // Check if the click was outside the content (overlay click)
+  if (event.target === document.getElementById("rules-modal")) {
+    closeRules();
+  }
+});
+
