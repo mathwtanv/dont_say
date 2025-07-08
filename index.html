@@ -8,16 +8,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="game-wrapper">
-  <!-- First page title with info button -->
-  <div id="title-container" style="display: flex; align-items: center; justify-content: center; gap: 8px; position: relative;">
-    <h1 id="main-title">To Say or Not to Say a Number</h1>
-    <button id="info-button" aria-label="Game Rules">i</button>
-  </div>
 
-  <!-- Rules Modal -->
+  <!-- Rules Modal - over entire screen -->
   <div id="rules-modal" class="hidden">
-    <div id="rules-overlay"></div>
     <div id="rules-content">
       <h2>Game Rules</h2>
       <p>
@@ -31,66 +24,76 @@
     </div>
   </div>
 
-  <!-- Setup Screen -->
-  <div id="setup-screen" class="setup-screen">
-    <h2>CONFIGURE!</h2>
+  <!-- Game Wrapper -->
+  <div id="game-wrapper">
 
-    <label>
-      Say or Don't Say:
-      <select id="mode">
-        <option value="dont-say">Don't Say</option>
-        <option value="say">Say</option>
-      </select>
-    </label>
+    <!-- Title and Info Button -->
+    <div id="title-container" style="display: flex; align-items: center; justify-content: center; gap: 8px; position: relative;">
+      <h1 id="main-title"><strong>To Say or Not to Say a Number</strong></h1>
+      <button id="info-button" aria-label="Game Rules">i</button>
+    </div>
 
-    <label>
-      Which number?
-      <input type="number" id="target-number" min="1" max="100" value="13">
-    </label>
+    <!-- Setup Screen -->
+    <div id="setup-screen" class="setup-screen">
+      <h2>CONFIGURE!</h2>
 
-    <label>
-      Increment by:
-      <input type="number" id="increment" min="1" max="10" value="2">
-    </label>
+      <label>
+        Say or Don't Say:
+        <select id="mode">
+          <option value="dont-say">Don't Say</option>
+          <option value="say">Say</option>
+        </select>
+      </label>
 
-    <button id="start-game-button" class="dark-grey-btn" onclick="startGame()">Start Game</button>
+      <label>
+        Which number?
+        <input type="number" id="target-number" min="1" max="100" value="13">
+      </label>
+
+      <label>
+        Increment by:
+        <input type="number" id="increment" min="1" max="10" value="2">
+      </label>
+
+      <button id="start-game-button" class="dark-grey-btn" onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- Game Container -->
+    <main id="game-container" class="game-container">
+      <div id="mode-select" class="mode-select">
+        <div id="game-mode-row" class="dropdown-row">
+          <label for="game-mode"><strong>Game Mode:</strong></label>
+          <select id="game-mode" onchange="chooseGameMode()">
+            <option value="">- Select -</option>
+            <option value="pvp">2 Player</option>
+            <option value="easy">Easy AI</option>
+            <option value="hard">Hard AI</option>
+          </select>
+        </div>
+
+        <div id="first-move-row" class="dropdown-row hidden">
+          <label for="first-player"><strong>Turn Options:</strong></label>
+          <select id="first-player" onchange="confirmFirstPlayer()">
+            <option value="">- Select -</option>
+            <option value="you">First</option>
+            <option value="ai">Second</option>
+          </select>
+        </div>
+      </div>
+
+      <p id="turn" class="hidden">Player A's Turn</p>
+      <div class="buttons" id="say-buttons"></div>
+      <div id="number-area" class="number-area"></div>
+      <p id="result" class="result"></p>
+
+      <div class="button-row">
+        <button id="back-button" class="dark-grey-btn hidden" onclick="goToInitial()">Initial States</button>
+        <button id="reset-button" class="dark-grey-btn hidden" onclick="resetGame()">Restart</button>
+      </div>
+    </main>
+
   </div>
 
-  <!-- Game Container -->
-  <main id="game-container" class="game-container">
-    <div id="mode-select" class="mode-select">
-      <div id="game-mode-row" class="dropdown-row">
-        <label for="game-mode"><strong>Game Mode:</strong></label>
-        <select id="game-mode" onchange="chooseGameMode()">
-          <option value="">- Select -</option>
-          <option value="pvp">2 Player</option>
-          <option value="easy">Easy AI</option>
-          <option value="hard">Hard AI</option>
-        </select>
-      </div>
-
-      <div id="first-move-row" class="dropdown-row hidden">
-        <label for="first-player"><strong>Turn Options:</strong></label>
-        <select id="first-player" onchange="confirmFirstPlayer()">
-          <option value="">- Select -</option>
-          <option value="you">First</option>
-          <option value="ai">Second</option>
-        </select>
-      </div>
-    </div>
-
-    <p id="turn" class="hidden">Player A's Turn</p>
-    <div class="buttons" id="say-buttons"></div>
-    <div id="number-area" class="number-area"></div>
-    <p id="result" class="result"></p>
-
-    <div class="button-row">
-      <button id="back-button" class="dark-grey-btn hidden" onclick="goToInitial()">Initial States</button>
-      <button id="reset-button" class="dark-grey-btn hidden" onclick="resetGame()">Restart</button>
-    </div>
-  </main>
-
   <script src="script.js"></script>
-</div>
 </body>
 </html>
