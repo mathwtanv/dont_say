@@ -1,4 +1,3 @@
-/* === Global Defaults === */
 body {
   margin: 0;
   padding: 0;
@@ -33,7 +32,7 @@ select#game-mode {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: scale(1);
+  transform: scale(1.1);
   transform-origin: top center;
   width: 100%;
 }
@@ -365,7 +364,7 @@ option {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
+  max-width: 400px;
   width: 90%;
   font-family: 'DM Serif Text', serif;
   color: #444;
